@@ -1,0 +1,24 @@
+program ::= {statement}
+statement ::= {assign_statement | declaration_statement | if_statement | while_statement | for_statement } 
+
+expression = term ("+" | "-") term { ("+" | "-") term } | term
+
+declaration_statement ::= identifier ":" data_type
+assign_statement ::= identifier "<-" expression ";"
+
+data_type ::= integer | string | char | boolean | array
+identifier ::= identifier | array "[" number "]"
+condition ::= expression {"||" | "&&" expression }
+
+simple_statement ::= assign_statement | "read" | "write"
+
+statement ::= simple_statement | struct_statement ";"
+compound_statement ::= {declaration_statement ";"} statement | {declaration_statement ";"} statement ";" compound_statement ";"
+
+struct_statement ::= if_statement | while_statement | for_statement
+
+relation ::= ">" | "<" | ">=" | "<=" | "==" | "!="
+
+if_statement ::= "if" "(" condition ")" "{" compound_statement "}" { ("else" "{" compound_statement "}" ) | ("else if" "{" compound_statement "}")
+while_statement ::= "while" "(" condition ")" "{" compound_statement" "}"
+for_statement ::= "for" "(" assign_statement condition ";" condition; compound_statement ")" "{" compound_statement "}";

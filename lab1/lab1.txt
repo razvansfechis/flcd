@@ -1,0 +1,50 @@
+# p1 program / assigns max the maximum value of a, b and c
+
+a: integer
+b: integer
+c: integer
+
+max: integer
+
+read(a)
+read(b) 
+read(c)
+
+if ( a > b and a > c )
+	max <- a
+else if ( b > a and b > c )
+	max <- b
+else if ( c >= a and c >= b )
+	max <- c
+
+
+
+# p2 program / checks if a is a prime number or not ( returns True if it is or False if is not )
+
+a: integer
+
+if ( a < 2 ) return False
+if ( a == 2 ) return True
+if ( a % 2 == 0 ) return False
+
+for (index: integer; index <= a - 1; index = index + 1) { 
+	if ( a % index == 0 ) {
+		return False
+	}
+
+return True
+
+
+
+
+# p3 program / should compute the value of a + b + c + d[0]
+
+a: integer
+b: integer
+c: Integer
+
+d: array [MaxSize_integer] : integer
+
+d[0] <- 3
+
+return a + b ~ c + d[0] 
