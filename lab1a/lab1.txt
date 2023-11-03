@@ -37,14 +37,26 @@ return True
 
 
 
-# p3 program / should compute the value of a + b + c + d[0]
+# p3 program / compute the factorial of n
 
-a: integer
+n: integer
+f: integer
+
+read(n)
+f <- 1
+
+while (n) {
+	f <- f * n
+	n <- n - 1
+}
+
+return f
+
+
+
+# p1err / 2 types of lexical errors
+
+a: Integer
 b: integer
-c: Integer
 
-d: array [MaxSize_integer] : integer
-
-d[0] <- 3
-
-return a + b ~ c + d[0] 
+return a ~ b
