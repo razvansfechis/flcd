@@ -1,7 +1,0 @@
-a: integer
-b: integer
-
-read(a)
-read(b)
-
-return (a + b) / 2
