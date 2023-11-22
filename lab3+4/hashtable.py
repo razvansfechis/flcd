@@ -15,7 +15,10 @@ class HashTable:
         return None
 
     def _hash(self, key):
-        return int(key) % self.size
+        if isinstance(key, str):
+            return len(key) % self.size
+        else:
+            return int(key) % self.size
 
     def contains_term(self, term):
         return self.find_position_of_term(term) is not None

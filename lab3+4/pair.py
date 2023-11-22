@@ -4,4 +4,4 @@ class Pair:
         self.second = second
 
     def __str__(self):
-        return "Pair(" + str(self.first) + "," + str(self.second) + ")"
+        return "(" + str(self.first) + "," + str(self.second) + ")"
