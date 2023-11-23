@@ -1,0 +1,4 @@
+a `` integer
+b : integer
+
+return a ~ b

@@ -1,0 +1,20 @@
+https://github.com/razvansfechis/flcd/tree/main/lab3
+
+The class that performs the scanning is called Scanner
+Scanner consists of: 
+	- SymbolTable, where we store identifiers and constants tokens
+	- ProgramInternalForm where we store all the all the tokens
+Scanner has the following methods:
+	- getTokensFromFile: parses the file and gets all the tokens 
+	- checkTypeToken: gets all the tokens from the getTokensFromFile method and checks if they are either a reserved word, a separator, an operator and identfier or a constant 
+		                  if they are an identifier or a constant then they are added to the SymbolTable aswell as to the ProgramInternalForm, otherwise they are only added to the ProgramInternalFrom
+	- in the scanner we have the: 
+		- operators, defined as: ["+", "-", "*", "/", "==", "<", "<=", ">", ">=", "=", "<-", "%", ":"]
+		- separators, defined as: ["{", "}", "(", ")", "[", "]", ";", " ", "\t", "\n", ","]
+		- reserved words, defined as: ["if", "else", "read", "write", "integer", "string", "return"]
+		- regex for identifiers: "^[a-zA-Z][a-zA-Z0-9_]*"
+		- regex for constants:  "0|([1-9]+[0-9]*)"
+Along as those, we have :
+	Files: p1.txt, p1err.txt, p2.txt, p3.txt where we get the input
+	Class Pair which returns a pair : (first, second)
+	Class HashTable and SymbolTable, the SymbolTable being implemented using the HashTable class		
