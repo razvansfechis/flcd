@@ -1,0 +1,4 @@
+SymbolTable: { 
+ 	 elements=[[], ['a', 'b', 'c'], [], ['max', 'and'], [], [], [], [], [], []] 
+ 	 size=10 
+ }
