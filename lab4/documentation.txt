@@ -1,3 +1,5 @@
+https://github.com/razvansfechis/flcd/tree/main/lab4
+
 Documentation:
 
 class FiniteAutomata ->
@@ -6,21 +8,21 @@ Represents a Deterministic Finite Automaton (DFA).
 
     Attributes:
 	 - elem_separator: Separator for elements in the input file.
-    	- is_deterministic: Indicates if the DFA is deterministic.
+    	- is_deterministic): Indicates if the DFA is deterministic.
     	- initial_state: Initial state of the DFA.
     	- states: List of states.
     	- alphabet: Alphabet symbols.
-   	    - final_states: List of final states.
+   	 -final_states: List of final states.
     	- transitions: stores the transitions
 
     Methods:
     	- __init__(file_path: str): Initializes the DFA from a file.
-   	    - accepts_sequence(sequence: str) -> bool: Checks if the DFA accepts a sequence.
+   	 - accepts_sequence(sequence: str) -> bool: Checks if the DFA accepts a sequence.
     	- get_states() -> list: Returns the list of states.
     	- get_initial_state() -> str: Returns the initial state.
-   	    - get_alphabet() -> list: Returns the alphabet.
+   	 - get_alphabet() -> list: Returns the alphabet.
     	- get_final_states() -> list: Returns the list of final states.
-   	    - get_transitions() -> dict: Returns the transition function.
+   	- get_transitions() -> dict: Returns the transition function.
     	- write_transitions() -> str: Returns a string representation of the transition function.
 
 

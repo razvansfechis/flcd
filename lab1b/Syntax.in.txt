@@ -14,7 +14,7 @@ array_assign_statement = "{" identifer | digit | boolean "}"
 
 string = """{char}"""
 
-constants = integer | boolean | string | char | array 
+constant = integer | boolean | string | char | array 
 
 expression = identifier ("+" | "-") identifier { ("+" | "-") identifier } | identifier
 
@@ -24,6 +24,8 @@ assign_statement = identifier "<-" expression ";"
 data_type = "integer" | "string" | "char" | "boolean" | "array"
 identifier = identifier | array "[" number "]"
 condition = expression {"||" | "&&" expression }
+
+iostmt = read identifier | write identifier | write constant
 
 simple_statement = assign_statement | "read" | "write"
 
