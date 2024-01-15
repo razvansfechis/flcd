@@ -1,38 +1,71 @@
-Grammar Class
-The Grammar class represents a context-free grammar (CFG) and provides methods for initializing, reading CFG information from a file, checking CFG validity, and obtaining a string representation of the grammar.
+class Grammar:
+    EPSILON = "epsilon"
 
-Attributes:
-EPSILON (class attribute):
+    def __init__(self, filename):
+        self.non_term = []  # non-terminals
+        self.term = []  # terminals
+        self.start = ""  # starting symbol/ axiom
+        self.productions = {}  # finite set of productions
+        self.read_from_file(filename)
+    def rebuild(self):
+        self.non_term = []
+        self.term = []
+        self.start = ""
+        self.productions = {}
 
-A string constant representing the empty string, often denoted as ε or "epsilon."
-non_term (list):
+    def __processLine(self, line: str, delimiter=' '):
+            elements = line.strip().split(delimiter)
+            return elements
 
-Non-terminals of the CFG.
-term (list):
+    def read_from_file(self, file_name: str):
+        self.rebuild()
+        with open(file_name) as file:
+            line = next(file)
+            self.non_term = self.__processLine(line)
 
-Terminals of the CFG.
-start (string):
+            line = next(file)
+            self.term = self.__processLine(line)
 
-The starting symbol or axiom of the CFG.
-production (dictionary):
+            line = next(file)
+            self.start = self.__processLine(line)[0]
 
-Stores the finite set of productions, where keys are non-terminals, and values are lists of possible right-hand sides.
-Methods:
-__init__(self)
+            line = file.readline()
+            while line.strip() and ' -> ' not in line:
+                line = file.readline()
 
-Initializes a Grammar object with empty lists for non-terminals, terminals, an empty string for the starting symbol, and an empty production dictionary.
-rebuild(self)
+            while line:
+                if ' -> ' in line:
+                    source, productions = line.split(" -> ")
+                    source = source.strip()
+                    for production in productions.split('|'):
+                        production = production.strip().replace('epsilon', Grammar.EPSILON).split()
+                        if source in self.productions:
+                            self.productions[source].append(production)
+                        else:
+                            self.productions[source] = [production]
+                line = file.readline()
 
-Resets all attributes of the Grammar object to an empty state, facilitating the reconstruction of a new CFG.
-__processLine(self, line: str, delimiter=' ') -> List[str]
 
-Helper method that processes a line of text by splitting it into elements based on a specified delimiter. Returns a list of elements.
-read_from_file(self, file_name: str) -> None
+    def check_cfg(self):
+        has_starting_symbol = False
+        for key in self.productions.keys():
+            if key == self.start:
+                has_starting_symbol = True
+            if key not in self.non_term:
+                return False
+        if not has_starting_symbol:
+            return False
 
-Reads CFG information from the specified file, populating the Grammar object with non-terminals, terminals, the starting symbol, and production rules.
-check_cfg(self) -> bool
+        for production in self.productions.values():
+            for rhs in production:
+                for value in rhs:
+                    if value not in self.non_term and value not in self.term and value != Grammar.EPSILON:
+                        return False
+        return True
 
-Checks the validity of the CFG by ensuring it has a starting symbol, and all symbols used in production rules are either non-terminals, terminals, or epsilon. Returns True if valid, False otherwise.
-__str__(self) -> str
-
-Generates a string representation of the CFG, including non-terminals, terminals, the starting symbol, and production rules. Suitable for displaying the CFG details when printed.
+    def __str__(self):
+        result = "N = " + str(self.non_term) + "\n"
+        result += "E = " + str(self.term) + "\n"
+        result += "S = " + str(self.start) + "\n"
+        result += "P = " + str(self.productions) + "\n"
+        return result
