@@ -34,7 +34,7 @@ STRING              \"[a-zA-Z0-9]*\"
 [\n]+   {lines++;}
 
 [0-9][a-zA-Z0-9_]*		                                        {printf("Illegal identifier at line %d\n", lines);}
-[+|-]0		                                                    {printf("Illegal numeric constant at line %d\n", lines);}
+[+|-]0		                                                   	 {printf("Illegal numeric constant at line %d\n", lines);}
 
 %%
 
