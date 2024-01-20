@@ -38,7 +38,7 @@
 # define YY_YY_LANG_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+# define YYDEBUG 1
 #endif
 #if YYDEBUG
 extern int yydebug;
@@ -50,40 +50,40 @@ extern int yydebug;
   enum yytokentype
   {
     INTEGER = 258,
-STR = 259,
-CHAR = 260,
-READ = 261,
-IF = 262,
-ELSE = 263,
-PRINT = 264,
-WHILE = 265,
-AND = 266,
-START = 267,
-plus = 268,
-minus = 269,
-times = 270,
-DIV = 271,
-less = 272,
-lessOrEqual = 273,
-equal = 274,
-biggerOrEqual = 275,
-equalEqual = 276,
-notEqual = 277,
-mod = 278,
-bigger = 279,
-assignType = 280,
-assignVar = 281,
-leftBracket = 282,
-rightBracket = 283,
-semicolon = 284,
-roundLeftBracket = 285,
-roundRightBracket = 286,
-curlyLeftBracket = 287,
-curlyRightBracket = 288,
-comma = 289,
-ID = 290,
-INT_CONSTANT = 291,
-STRING_CONSTANT = 292
+    STR = 259,
+    CHAR = 260,
+    READ = 261,
+    IF = 262,
+    ELSE = 263,
+    PRINT = 264,
+    WHILE = 265,
+    AND = 266,
+    START = 267,
+    plus = 268,
+    mod = 269,
+    minus = 270,
+    times = 271,
+    DIV = 272,
+    less = 273,
+    lessOrEqual = 274,
+    equal = 275,
+    notEqual = 276,
+    biggerOrEqual = 277,
+    equalEqual = 278,
+    bigger = 279,
+    assignType = 280,
+    assignVar = 281,
+    leftBracket = 282,
+    rightBracket = 283,
+    semicolon = 284,
+    roundLeftBracket = 285,
+    roundRightBracket = 286,
+    curlyLeftBracket = 287,
+    curlyRightBracket = 288,
+    comma = 289,
+    ID = 290,
+    INT_CONSTANT = 291,
+    STRING_CONSTANT = 292
   };
 #endif
 
